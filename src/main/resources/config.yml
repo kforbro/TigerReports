@@ -49,7 +49,7 @@ Config:
   AbusiveReport:
     Cooldown: 3600
     # Cooldown in seconds inflicted for an abusive report / Temps d'attente en secondes infligé pour un signalement abusif
-  
+
     Commands: none
     # List of executed commands after a report is processed as abusive, set 'none' to don't execute any / Liste des commandes exécutées après chaque signalement traité comme abusif, mettre "none" pour aucune
     # Put '-CONSOLE' at the beginning of a command to execute it with the console (and not the staff member) / Mettre "-CONSOLE" au début d'une commande pour l'exécuter avec la console (et non le membre de la modération)
@@ -117,11 +117,11 @@ Config:
       # "&7The player is flying. "
       Item: Material-Feather
       PunishCommands:
-      - "ban _Reported_ 7d Fly"
-  #    - '-CONSOLE title @a title {"text":""}'
-  #    - '-CONSOLE title @a subtitle ["",{"text":"_Reported_","color":"red"},{"text":" a \u00e9t\u00e9 banni pour: ","color":"gray"},{"text":"Fly","color":"yellow"}]'
-  #    - '-CONSOLE tellraw _Staff_ {"text":"Vous avez sanctionn\u00e9 le joueur _Reported_"}'
-  #    - '-CONSOLE eco give _Reporter_ 5'
+        - "ban _Reported_ 7d Fly"
+      #    - '-CONSOLE title @a title {"text":""}'
+      #    - '-CONSOLE title @a subtitle ["",{"text":"_Reported_","color":"red"},{"text":" a \u00e9t\u00e9 banni pour: ","color":"gray"},{"text":"Fly","color":"yellow"}]'
+      #    - '-CONSOLE tellraw _Staff_ {"text":"Vous avez sanctionn\u00e9 le joueur _Reported_"}'
+      #    - '-CONSOLE eco give _Reporter_ 5'
       PunishCommandsPermission: punishment.fly
     Reason2:
       Name: "Speed"
@@ -129,35 +129,35 @@ Config:
       # "&7The player is moving too quick."
       Item: Material-Chainmail_leggings
       PunishCommands:
-      - "ban _Reported_ 7d Speed"
+        - "ban _Reported_ 7d Speed"
     Reason3:
       Name: "ForceField"
       Lore: "&7Le joueur tape les joueurs/entit\xe9s//&7proches de lui de fa\u00E7on suspecte."
       # "&7The player is hitting players/entities//&7abnormally."
       Item: Material-Iron_sword
       PunishCommands:
-      - "ban _Reported_ 14d ForceField"
+        - "ban _Reported_ 14d ForceField"
     Reason4:
       Name: "Reach"
       Lore: "&7Le joueur tape de tr\u00E8s loin//&7les joueurs/entit\xe9s."
       # "&7The player is hitting entities from far away."
       Item: Material-Stick
       PunishCommands:
-      - "ban _Reported_ 7d Reach"
+        - "ban _Reported_ 7d Reach"
     Reason5:
       Name: "RapidBowShot"
       Lore: "&7Le joueur tire des fl\u00E8ches//&7tr\u00E8s vite."
       # "&7The player is shooting arrows quickly."
       Item: Material-Bow
       PunishCommands:
-      - "ban _Reported_ 7d RapidBowShot"
+        - "ban _Reported_ 7d RapidBowShot"
     Reason6:
       Name: "NoKnockback"
       Lore: "&7Le joueur ne recule pas//&7lorsqu'il est frapp\xe9."
       # "&7The player isn't knocked//&7back when he is hit."
       Item: Material-Fishing_rod
       PunishCommands:
-      - "ban _Reported_ 7d NoKnockback"
+        - "ban _Reported_ 7d NoKnockback"
     Reason7: blank
     Reason8:
       Name: "Grief"
@@ -165,14 +165,14 @@ Config:
       # "&7The player griefed one of my construction."
       Item: Material-TNT
       PunishCommands:
-      - "ban _Reported_ 2d Grief"
+        - "ban _Reported_ 2d Grief"
     Reason9:
       Name: "Insultes"
       Lore: "&7Le joueur est irrespectueux."
       # "&7The player is disrespectful."
       Item: Material-Sign
       PunishCommands:
-      - "mute _Reported_ 2h Insultes"
+        - "mute _Reported_ 2h Insultes"
   # Default reasons displayed in a menu / Raisons par défaut affichées dans un menu
   # Put 'blank' to create an empty reason (to add a space in the menu) / Mettre "blank" pour créer une raison vide (pour ajouter un espace dans le menu)
   # Name:    Reason of the report / Raison du signalement
@@ -206,21 +206,21 @@ Config:
       # "&7The player use a hack again."
       Item: Material-TNT
       PunishCommands:
-      - "ban _Reported_ 1m R\xe9cidive de triche"
+        - "ban _Reported_ 1m R\xe9cidive de triche"
     Punishment2:
       Name: "Harc\u00E8lement"
       Lore: "&7Le joueur harc\u00E8le les autres."
       # "&7The player harasses others."
       Item: Material-Pumpkin
       PunishCommands:
-      - "ban _Reported_ 7d Harc\u00E8lement"
+        - "ban _Reported_ 7d Harc\u00E8lement"
     Punishment3:
       Name: "Autre: _StaffReason_"
       Lore: "&7Autre raison \xe0 pr\xe9ciser."
       # "&7Other punishment reason to specify."
       Item: Material-Pumpkin
       PunishCommands:
-      - "ban _Reported_ 7d _StaffReason_"
+        - "ban _Reported_ 7d _StaffReason_"
   # Punishments available after processing a report as True / Sanctions disponibles après avoir traité un signalement comme vrai
   # Name:    Name of the punsihment / Nom de la sanction
   # Lore:    Description of the punishment / Description de la sanction

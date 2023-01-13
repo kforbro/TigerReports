@@ -11,14 +11,14 @@ import static org.mockito.ArgumentMatchers.any;
  */
 public class TestsMessageUtils {
 
-	public static void mockSendStaffMessage(MockedStatic<MessageUtils> messageUtilsMock,
-	        Holder<Object> sentStaffMessage) {
-		messageUtilsMock.when(() -> MessageUtils.sendStaffMessage(any(Object.class), any(Sound.class)))
-		        .then((invocation) -> {
-			        Object msg = invocation.getArgument(0);
-			        sentStaffMessage.set(msg);
-			        return true;
-		        });
-	}
+    public static void mockSendStaffMessage(MockedStatic<MessageUtils> messageUtilsMock,
+                                            Holder<Object> sentStaffMessage) {
+        messageUtilsMock.when(() -> MessageUtils.sendStaffMessage(any(Object.class), any(Sound.class)))
+                .then((invocation) -> {
+                    Object msg = invocation.getArgument(0);
+                    sentStaffMessage.set(msg);
+                    return true;
+                });
+    }
 
 }

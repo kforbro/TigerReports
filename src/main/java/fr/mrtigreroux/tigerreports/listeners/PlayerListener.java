@@ -37,64 +37,64 @@ import java.util.List;
  */
 public class PlayerListener implements Listener {
 
-	private static final List<String> HELP_COMMANDS = Arrays.asList("tigerreport", "helptigerreport", "reportshelp",
-	        "report?", "reports?");
+    private static final List<String> HELP_COMMANDS = Arrays.asList("tigerreport", "helptigerreport", "reportshelp",
+            "report?", "reports?");
 
-	private final ReportsManager rm;
-	private final Database db;
-	private final TigerReports tr;
-	private final BungeeManager bm;
-	private final VaultManager vm;
-	private final UsersManager um;
+    private final ReportsManager rm;
+    private final Database db;
+    private final TigerReports tr;
+    private final BungeeManager bm;
+    private final VaultManager vm;
+    private final UsersManager um;
 
-	public PlayerListener(ReportsManager rm, Database db, TigerReports tr, BungeeManager bm, VaultManager vm,
-	        UsersManager um) {
-		this.rm = rm;
-		this.db = db;
-		this.tr = tr;
-		this.bm = bm;
-		this.vm = vm;
-		this.um = um;
-	}
+    public PlayerListener(ReportsManager rm, Database db, TigerReports tr, BungeeManager bm, VaultManager vm,
+                          UsersManager um) {
+        this.rm = rm;
+        this.db = db;
+        this.tr = tr;
+        this.bm = bm;
+        this.vm = vm;
+        this.um = um;
+    }
 
-	@SuppressWarnings("deprecation")
-	@EventHandler
-	private void onPlayerJoin(PlayerJoinEvent e) {
-		Player p = e.getPlayer();
-		Logger.EVENTS.info(() -> "onPlayerJoin(): " + p.getName());
-		um.processUserConnection(p);
-		User u = um.getOnlineUser(p);
-		Logger.EVENTS.info(() -> "onPlayerJoin(): " + u.getName() + ", u = " + u);
-		FileConfiguration configFile = ConfigFile.CONFIG.get();
+    @SuppressWarnings("deprecation")
+    @EventHandler
+    private void onPlayerJoin(PlayerJoinEvent e) {
+        Player p = e.getPlayer();
+        Logger.EVENTS.info(() -> "onPlayerJoin(): " + p.getName());
+        um.processUserConnection(p);
+        User u = um.getOnlineUser(p);
+        Logger.EVENTS.info(() -> "onPlayerJoin(): " + u.getName() + ", u = " + u);
+        FileConfiguration configFile = ConfigFile.CONFIG.get();
 
-		tr.runTaskDelayedly(2000L, new Runnable() {
+        tr.runTaskDelayedly(2000L, new Runnable() {
 
-			@Override
-			public void run() {
-				if (p.isOnline()) {
-					u.updateBasicData(db, bm, um);
-					um.processUserConnection(p); // In case that PlayerQuitEvent is fired after PlayerJoinEvent (for a reconnection it should be the opposite)
-					bm.processPlayerConnection(p);
-				} else {
-					Logger.EVENTS.info(() -> "onPlayerJoin(): after the delay, player " + u.getName()
-					        + " is no longer online, cancel any update");
-				}
-			}
+            @Override
+            public void run() {
+                if (p.isOnline()) {
+                    u.updateBasicData(db, bm, um);
+                    um.processUserConnection(p); // In case that PlayerQuitEvent is fired after PlayerJoinEvent (for a reconnection it should be the opposite)
+                    bm.processPlayerConnection(p);
+                } else {
+                    Logger.EVENTS.info(() -> "onPlayerJoin(): after the delay, player " + u.getName()
+                            + " is no longer online, cancel any update");
+                }
+            }
 
-		});
+        });
 
-		tr.runTaskDelayedly(configFile.getInt("Config.Notifications.Delay", 2) * 1000L, new Runnable() {
+        tr.runTaskDelayedly(configFile.getInt("Config.Notifications.Delay", 2) * 1000L, new Runnable() {
 
-			@Override
-			public void run() {
-				u.sendNotifications(rm, db, tr, vm, bm, um);
-				if (u.hasPermission(Permission.STAFF)
-				        && ConfigUtils.isEnabled(configFile, "Config.Notifications.Staff.Connection")) {
-					ReportsNotifier.sendReportsNotification(p, db, tr);
-				}
-			}
+            @Override
+            public void run() {
+                u.sendNotifications(rm, db, tr, vm, bm, um);
+                if (u.hasPermission(Permission.STAFF)
+                        && ConfigUtils.isEnabled(configFile, "Config.Notifications.Staff.Connection")) {
+                    ReportsNotifier.sendReportsNotification(p, db, tr);
+                }
+            }
 
-		});
+        });
 
 //		if (u.hasPermission(Permission.MANAGE)) {
 //			if (tr.needUpdatesInstructions()) {
@@ -156,104 +156,104 @@ public class PlayerListener implements Listener {
 //				p.spigot().sendMessage(updateMessage);
 //			}
 //		}
-	}
+    }
 
-	@EventHandler(priority = EventPriority.LOWEST)
-	private void onPlayerQuit(PlayerQuitEvent e) {
-		Player p = e.getPlayer();
-		Logger.EVENTS.info(() -> "onPlayerQuit(): " + p.getName());
-		um.processUserDisconnection(p.getUniqueId(), vm);
-		bm.processPlayerDisconnection(p.getName(), p.getUniqueId());
-		Logger.EVENTS.info(() -> "onPlayerQuit(): " + p.getName() + ", end");
-	}
+    @EventHandler(priority = EventPriority.LOWEST)
+    private void onPlayerQuit(PlayerQuitEvent e) {
+        Player p = e.getPlayer();
+        Logger.EVENTS.info(() -> "onPlayerQuit(): " + p.getName());
+        um.processUserDisconnection(p.getUniqueId(), vm);
+        bm.processPlayerDisconnection(p.getName(), p.getUniqueId());
+        Logger.EVENTS.info(() -> "onPlayerQuit(): " + p.getName() + ", end");
+    }
 
-	@EventHandler(priority = EventPriority.LOWEST)
-	private void onPlayerChat(AsyncPlayerChatEvent e) {
-		User u = um.getOnlineUser(e.getPlayer());
-		Logger.EVENTS.info(() -> "onPlayerChat(): " + u.getName());
-		if (u.isEditingComment()) {
-			tr.runTask(() -> {
-				u.terminateEditingComment(e.getMessage(), rm, db, tr, um, bm, vm);
-			});
-			e.setCancelled(true);
-		} else if (u.isProcessPunishingWithStaffReason()) {
-			tr.runTask(() -> {
-				u.terminateProcessPunishingWithStaffReason(e.getMessage(), rm, db, tr, vm, bm);
-			});
-			e.setCancelled(true);
-		}
-	}
+    @EventHandler(priority = EventPriority.LOWEST)
+    private void onPlayerChat(AsyncPlayerChatEvent e) {
+        User u = um.getOnlineUser(e.getPlayer());
+        Logger.EVENTS.info(() -> "onPlayerChat(): " + u.getName());
+        if (u.isEditingComment()) {
+            tr.runTask(() -> {
+                u.terminateEditingComment(e.getMessage(), rm, db, tr, um, bm, vm);
+            });
+            e.setCancelled(true);
+        } else if (u.isProcessPunishingWithStaffReason()) {
+            tr.runTask(() -> {
+                u.terminateProcessPunishingWithStaffReason(e.getMessage(), rm, db, tr, vm, bm);
+            });
+            e.setCancelled(true);
+        }
+    }
 
-	@EventHandler(priority = EventPriority.HIGHEST, ignoreCancelled = true)
-	private void onPlayerChat2(AsyncPlayerChatEvent e) {
-		User u = um.getOnlineUser(e.getPlayer());
-		if (u == null) {
-			Logger.EVENTS.info(() -> "onPlayerChat2(): " + e.getPlayer().getName() + " is offline (u = null)");
-			return;
-		}
-		Logger.EVENTS.info(() -> "onPlayerChat2(): " + u.getName());
-		u.updateLastMessages(e.getMessage());
+    @EventHandler(priority = EventPriority.HIGHEST, ignoreCancelled = true)
+    private void onPlayerChat2(AsyncPlayerChatEvent e) {
+        User u = um.getOnlineUser(e.getPlayer());
+        if (u == null) {
+            Logger.EVENTS.info(() -> "onPlayerChat2(): " + e.getPlayer().getName() + " is offline (u = null)");
+            return;
+        }
+        Logger.EVENTS.info(() -> "onPlayerChat2(): " + u.getName());
+        u.updateLastMessages(e.getMessage());
 
-		ConfigurationSection config = ConfigFile.CONFIG.get();
-		String path = "Config.ChatReport.";
-		String playerName = u.getPlayer().getName();
-		if (ConfigUtils.isEnabled(config, path + "Enabled")) {
-			Object message = MessageUtils.getAdvancedMessage(
-			        MessageUtils.translateColorCodes(config.getString(path + "Message"))
-			                .replace("_DisplayName_", u.getDisplayName(vm))
-			                .replace("_Name_", playerName)
-			                .replace("_Message_", e.getMessage()),
-			        "_ReportButton_", MessageUtils.translateColorCodes(config.getString(path + "ReportButton.Text")),
-			        MessageUtils.translateColorCodes(config.getString(path + "ReportButton.Hover"))
-			                .replace("_Player_", playerName),
-			        "/tigerreports:report " + playerName + " " + config.getString(path + "ReportButton.Reason"));
-			boolean isTextComponent = message instanceof TextComponent;
-			for (Player p : Bukkit.getOnlinePlayers()) {
-				if (isTextComponent) {
-					p.spigot().sendMessage((TextComponent) message);
-				} else {
-					p.sendMessage((String) message);
-				}
-			}
-			MessageUtils
-			        .sendConsoleMessage(isTextComponent ? ((TextComponent) message).toLegacyText() : (String) message);
-			e.setCancelled(true);
-		}
-	}
+        ConfigurationSection config = ConfigFile.CONFIG.get();
+        String path = "Config.ChatReport.";
+        String playerName = u.getPlayer().getName();
+        if (ConfigUtils.isEnabled(config, path + "Enabled")) {
+            Object message = MessageUtils.getAdvancedMessage(
+                    MessageUtils.translateColorCodes(config.getString(path + "Message"))
+                            .replace("_DisplayName_", u.getDisplayName(vm))
+                            .replace("_Name_", playerName)
+                            .replace("_Message_", e.getMessage()),
+                    "_ReportButton_", MessageUtils.translateColorCodes(config.getString(path + "ReportButton.Text")),
+                    MessageUtils.translateColorCodes(config.getString(path + "ReportButton.Hover"))
+                            .replace("_Player_", playerName),
+                    "/tigerreports:report " + playerName + " " + config.getString(path + "ReportButton.Reason"));
+            boolean isTextComponent = message instanceof TextComponent;
+            for (Player p : Bukkit.getOnlinePlayers()) {
+                if (isTextComponent) {
+                    p.spigot().sendMessage((TextComponent) message);
+                } else {
+                    p.sendMessage((String) message);
+                }
+            }
+            MessageUtils
+                    .sendConsoleMessage(isTextComponent ? ((TextComponent) message).toLegacyText() : (String) message);
+            e.setCancelled(true);
+        }
+    }
 
-	@EventHandler(priority = EventPriority.LOWEST)
-	private void onPlayerCommandPreprocess(PlayerCommandPreprocessEvent e) {
-		String command = e.getMessage().substring(1);
-		if (checkHelpCommand(command, e.getPlayer())) {
-			e.setCancelled(true);
-		} else if (ConfigFile.CONFIG.get().getStringList("Config.CommandsHistory").contains(command.split(" ")[0])) {
-			um.getOnlineUser(e.getPlayer()).updateLastMessages("/" + command);
-		}
-	}
+    @EventHandler(priority = EventPriority.LOWEST)
+    private void onPlayerCommandPreprocess(PlayerCommandPreprocessEvent e) {
+        String command = e.getMessage().substring(1);
+        if (checkHelpCommand(command, e.getPlayer())) {
+            e.setCancelled(true);
+        } else if (ConfigFile.CONFIG.get().getStringList("Config.CommandsHistory").contains(command.split(" ")[0])) {
+            um.getOnlineUser(e.getPlayer()).updateLastMessages("/" + command);
+        }
+    }
 
-	@EventHandler(priority = EventPriority.LOWEST)
-	private void onServerCommandPreprocess(ServerCommandEvent e) {
-		if (checkHelpCommand(e.getCommand(), e.getSender())) {
-			e.setCommand("tigerreports");
-		}
-	}
+    @EventHandler(priority = EventPriority.LOWEST)
+    private void onServerCommandPreprocess(ServerCommandEvent e) {
+        if (checkHelpCommand(e.getCommand(), e.getSender())) {
+            e.setCommand("tigerreports");
+        }
+    }
 
-	private boolean checkHelpCommand(String command, CommandSender s) {
-		if (command.equalsIgnoreCase("report help")) {
-			HelpCommand.onCommand(s);
-			return true;
-		}
+    private boolean checkHelpCommand(String command, CommandSender s) {
+        if (command.equalsIgnoreCase("report help")) {
+            HelpCommand.onCommand(s);
+            return true;
+        }
 
-		command = command.toLowerCase().replace(" ", "");
-		if (!command.startsWith("tigerreports:report")) {
-			for (String helpCommand : HELP_COMMANDS) {
-				if (command.startsWith(helpCommand)) {
-					HelpCommand.onCommand(s);
-					return true;
-				}
-			}
-		}
-		return false;
-	}
+        command = command.toLowerCase().replace(" ", "");
+        if (!command.startsWith("tigerreports:report")) {
+            for (String helpCommand : HELP_COMMANDS) {
+                if (command.startsWith(helpCommand)) {
+                    HelpCommand.onCommand(s);
+                    return true;
+                }
+            }
+        }
+        return false;
+    }
 
 }

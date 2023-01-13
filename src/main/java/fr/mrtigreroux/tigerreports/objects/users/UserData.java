@@ -7,10 +7,10 @@ import fr.mrtigreroux.tigerreports.managers.VaultManager;
  */
 public interface UserData {
 
-	public String getName();
+    String getName();
 
-	public String getDisplayName(VaultManager vm);
+    String getDisplayName(VaultManager vm);
 
-	public String getDisplayName(VaultManager vm, boolean staff);
+    String getDisplayName(VaultManager vm, boolean staff);
 
 }

@@ -15,17 +15,17 @@ import static org.mockito.Mockito.*;
  */
 public class TestsBukkit {
 
-	public static void mockPluginManagerCallEvent(MockedStatic<Bukkit> bukkitMock, Holder<Event> calledEvent) {
-		Server server = mock(Server.class);
-		PluginManager pm = mock(PluginManager.class);
+    public static void mockPluginManagerCallEvent(MockedStatic<Bukkit> bukkitMock, Holder<Event> calledEvent) {
+        Server server = mock(Server.class);
+        PluginManager pm = mock(PluginManager.class);
 
-		bukkitMock.when(() -> Bukkit.getServer()).thenReturn(server);
-		when(server.getPluginManager()).thenReturn(pm);
-		doAnswer((invocation) -> {
-			Event event = (Event) invocation.getArgument(0);
-			calledEvent.set(event);
-			return true;
-		}).when(pm).callEvent(any(Event.class));
-	}
+        bukkitMock.when(() -> Bukkit.getServer()).thenReturn(server);
+        when(server.getPluginManager()).thenReturn(pm);
+        doAnswer((invocation) -> {
+            Event event = invocation.getArgument(0);
+            calledEvent.set(event);
+            return true;
+        }).when(pm).callEvent(any(Event.class));
+    }
 
 }
