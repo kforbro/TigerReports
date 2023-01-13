@@ -479,7 +479,7 @@ public class ReportsManager {
 		for (int i = 1; i < queryParams.size(); i++) {
 			query.append(",?");
 		}
-		query.append(") ORDER BY report_id ASC");
+		query.append(") ORDER BY report_id DESC");
 
 		LOGGER.info(() -> "collectReportsByIdAsynchronously(): " + CollectionUtils.toString(queryParams));
 		db.queryAsynchronously(query.toString(), queryParams, taskScheduler, resultCallback);
@@ -914,7 +914,7 @@ public class ReportsManager {
 				whereClause = "";
 				whereClauseParam = null;
 			}
-			final String orderClause = " ORDER BY report_id " + (reportsCharacteristics.archived ? "DESC" : "ASC");
+			final String orderClause = " ORDER BY report_id " + "DESC";
 
 			params.add(reportsCharacteristics.archived ? 1 : 0);
 			if (!whereClause.isEmpty()) {
