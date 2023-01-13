@@ -1,9 +1,9 @@
 package fr.mrtigreroux.tigerreports.objects.users;
 
-import java.util.Objects;
-
 import fr.mrtigreroux.tigerreports.managers.VaultManager;
 import fr.mrtigreroux.tigerreports.utils.DatetimeUtils;
+
+import java.util.Objects;
 
 /**
  * @author MrTigreroux

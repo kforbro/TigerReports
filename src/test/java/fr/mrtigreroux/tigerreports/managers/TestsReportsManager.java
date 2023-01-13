@@ -1,20 +1,19 @@
 package fr.mrtigreroux.tigerreports.managers;
 
-import static org.mockito.ArgumentMatchers.any;
-import static org.mockito.Mockito.doNothing;
-
-import java.util.Objects;
-import java.util.concurrent.atomic.AtomicInteger;
-
-import org.mockito.MockedStatic;
-import org.mockito.stubbing.Answer;
-
 import fr.mrtigreroux.tigerreports.data.Holder;
 import fr.mrtigreroux.tigerreports.data.database.Database;
 import fr.mrtigreroux.tigerreports.objects.reports.Report;
 import fr.mrtigreroux.tigerreports.objects.reports.ReportsPage;
 import fr.mrtigreroux.tigerreports.tasks.TaskScheduler;
 import fr.mrtigreroux.tigerreports.tasks.runnables.MenuUpdater;
+import org.mockito.MockedStatic;
+import org.mockito.stubbing.Answer;
+
+import java.util.Objects;
+import java.util.concurrent.atomic.AtomicInteger;
+
+import static org.mockito.ArgumentMatchers.any;
+import static org.mockito.Mockito.doNothing;
 
 /**
  * @author MrTigreroux

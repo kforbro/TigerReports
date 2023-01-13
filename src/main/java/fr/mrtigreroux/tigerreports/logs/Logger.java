@@ -1,18 +1,17 @@
 package fr.mrtigreroux.tigerreports.logs;
 
+import fr.mrtigreroux.tigerreports.TigerReports;
+import fr.mrtigreroux.tigerreports.utils.CollectionUtils;
+import fr.mrtigreroux.tigerreports.utils.FileUtils;
+import fr.mrtigreroux.tigerreports.utils.MessageUtils;
+import org.bukkit.Bukkit;
+import org.bukkit.plugin.Plugin;
+
 import java.io.IOException;
 import java.util.List;
 import java.util.Objects;
 import java.util.function.Supplier;
 import java.util.logging.Handler;
-
-import org.bukkit.Bukkit;
-import org.bukkit.plugin.Plugin;
-
-import fr.mrtigreroux.tigerreports.TigerReports;
-import fr.mrtigreroux.tigerreports.utils.CollectionUtils;
-import fr.mrtigreroux.tigerreports.utils.FileUtils;
-import fr.mrtigreroux.tigerreports.utils.MessageUtils;
 
 /**
  * @author MrTigreroux

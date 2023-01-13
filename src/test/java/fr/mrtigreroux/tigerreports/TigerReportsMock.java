@@ -1,25 +1,22 @@
 package fr.mrtigreroux.tigerreports;
 
-import static org.junit.jupiter.api.Assertions.assertNotNull;
-import static org.junit.jupiter.api.Assertions.assertTrue;
-import static org.mockito.Mockito.mock;
-import static org.mockito.Mockito.mockStatic;
-import static org.mockito.Mockito.when;
+import fr.mrtigreroux.tigerreports.data.config.ConfigFile;
+import fr.mrtigreroux.tigerreports.data.constants.MenuRawItem;
+import fr.mrtigreroux.tigerreports.logs.Level;
+import fr.mrtigreroux.tigerreports.logs.Logger;
+import fr.mrtigreroux.tigerreports.utils.MessageUtils;
+import org.bukkit.Bukkit;
+import org.mockito.MockedStatic;
+import org.mockito.Mockito;
 
 import java.io.File;
 import java.io.IOException;
 import java.net.URL;
 import java.net.URLConnection;
 
-import org.bukkit.Bukkit;
-import org.mockito.MockedStatic;
-import org.mockito.Mockito;
-
-import fr.mrtigreroux.tigerreports.data.config.ConfigFile;
-import fr.mrtigreroux.tigerreports.data.constants.MenuRawItem;
-import fr.mrtigreroux.tigerreports.logs.Level;
-import fr.mrtigreroux.tigerreports.logs.Logger;
-import fr.mrtigreroux.tigerreports.utils.MessageUtils;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
+import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.mockito.Mockito.*;
 
 /**
  * @author MrTigreroux

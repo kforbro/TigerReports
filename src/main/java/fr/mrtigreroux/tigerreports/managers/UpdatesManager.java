@@ -1,5 +1,15 @@
 package fr.mrtigreroux.tigerreports.managers;
 
+import fr.mrtigreroux.tigerreports.data.database.Database;
+import fr.mrtigreroux.tigerreports.data.database.MySQL;
+import fr.mrtigreroux.tigerreports.data.database.SQLite;
+import fr.mrtigreroux.tigerreports.logs.Logger;
+import fr.mrtigreroux.tigerreports.tasks.TaskScheduler;
+import fr.mrtigreroux.tigerreports.utils.ConfigUtils;
+import fr.mrtigreroux.tigerreports.utils.FileUtils;
+import fr.mrtigreroux.tigerreports.utils.VersionUtils;
+import org.bukkit.plugin.Plugin;
+
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
@@ -9,17 +19,6 @@ import java.util.List;
 import java.util.Map;
 import java.util.Map.Entry;
 import java.util.function.BiConsumer;
-
-import org.bukkit.plugin.Plugin;
-
-import fr.mrtigreroux.tigerreports.data.database.Database;
-import fr.mrtigreroux.tigerreports.data.database.MySQL;
-import fr.mrtigreroux.tigerreports.data.database.SQLite;
-import fr.mrtigreroux.tigerreports.logs.Logger;
-import fr.mrtigreroux.tigerreports.tasks.TaskScheduler;
-import fr.mrtigreroux.tigerreports.utils.ConfigUtils;
-import fr.mrtigreroux.tigerreports.utils.FileUtils;
-import fr.mrtigreroux.tigerreports.utils.VersionUtils;
 
 /**
  * @author MrTigreroux

@@ -1,11 +1,5 @@
 package fr.mrtigreroux.tigerreports.objects.reports;
 
-import java.util.ArrayList;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Objects;
-import java.util.Set;
-
 import fr.mrtigreroux.tigerreports.data.database.Database;
 import fr.mrtigreroux.tigerreports.logs.Logger;
 import fr.mrtigreroux.tigerreports.managers.ReportsManager;
@@ -13,6 +7,8 @@ import fr.mrtigreroux.tigerreports.managers.UsersManager;
 import fr.mrtigreroux.tigerreports.tasks.TaskScheduler;
 import fr.mrtigreroux.tigerreports.tasks.runnables.MenuUpdater;
 import fr.mrtigreroux.tigerreports.utils.CollectionUtils;
+
+import java.util.*;
 
 /**
  * @author MrTigreroux

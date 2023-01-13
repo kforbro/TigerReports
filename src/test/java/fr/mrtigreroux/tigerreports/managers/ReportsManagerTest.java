@@ -1,34 +1,5 @@
 package fr.mrtigreroux.tigerreports.managers;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertFalse;
-import static org.junit.jupiter.api.Assertions.assertNotEquals;
-import static org.junit.jupiter.api.Assertions.assertNotNull;
-import static org.junit.jupiter.api.Assertions.assertNull;
-import static org.junit.jupiter.api.Assertions.assertTrue;
-import static org.mockito.ArgumentMatchers.any;
-import static org.mockito.Mockito.doNothing;
-import static org.mockito.Mockito.mock;
-import static org.mockito.Mockito.mockStatic;
-import static org.mockito.Mockito.times;
-import static org.mockito.Mockito.verify;
-import static org.mockito.Mockito.when;
-
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
-import java.util.Objects;
-import java.util.Random;
-import java.util.Set;
-import java.util.concurrent.atomic.AtomicInteger;
-import java.util.function.Consumer;
-import java.util.stream.Collectors;
-
-import org.junit.jupiter.api.Nested;
-import org.junit.jupiter.api.Test;
-import org.mockito.MockedStatic;
-import org.mockito.Mockito;
-
 import fr.mrtigreroux.tigerreports.TestClass;
 import fr.mrtigreroux.tigerreports.data.Holder;
 import fr.mrtigreroux.tigerreports.data.database.Database;
@@ -37,11 +8,7 @@ import fr.mrtigreroux.tigerreports.data.database.TestsSQLite;
 import fr.mrtigreroux.tigerreports.logs.Level;
 import fr.mrtigreroux.tigerreports.managers.TestsReportsManager.FakeReportListener;
 import fr.mrtigreroux.tigerreports.managers.TestsReportsManager.FakeReportsPageListener;
-import fr.mrtigreroux.tigerreports.objects.reports.Report;
-import fr.mrtigreroux.tigerreports.objects.reports.ReportsCharacteristics;
-import fr.mrtigreroux.tigerreports.objects.reports.ReportsPage;
-import fr.mrtigreroux.tigerreports.objects.reports.ReportsPageCharacteristics;
-import fr.mrtigreroux.tigerreports.objects.reports.TestsReport;
+import fr.mrtigreroux.tigerreports.objects.reports.*;
 import fr.mrtigreroux.tigerreports.tasks.TaskCompletion;
 import fr.mrtigreroux.tigerreports.tasks.TaskScheduler;
 import fr.mrtigreroux.tigerreports.tasks.TestsTaskScheduler;
@@ -50,6 +17,19 @@ import fr.mrtigreroux.tigerreports.utils.AssertionUtils;
 import fr.mrtigreroux.tigerreports.utils.CollectionUtils;
 import fr.mrtigreroux.tigerreports.utils.RandomUtils;
 import fr.mrtigreroux.tigerreports.utils.TestsReportUtils;
+import org.junit.jupiter.api.Nested;
+import org.junit.jupiter.api.Test;
+import org.mockito.MockedStatic;
+import org.mockito.Mockito;
+
+import java.util.*;
+import java.util.concurrent.atomic.AtomicInteger;
+import java.util.function.Consumer;
+import java.util.stream.Collectors;
+
+import static org.junit.jupiter.api.Assertions.*;
+import static org.mockito.ArgumentMatchers.any;
+import static org.mockito.Mockito.*;
 
 /**
  * @author MrTigreroux

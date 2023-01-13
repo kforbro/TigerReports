@@ -1,8 +1,7 @@
 package fr.mrtigreroux.tigerreports.utils;
 
-import org.bukkit.Bukkit;
-
 import fr.mrtigreroux.tigerreports.logs.Logger;
+import org.bukkit.Bukkit;
 
 /**
  * @author MrTigreroux

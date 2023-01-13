@@ -1,11 +1,11 @@
 package fr.mrtigreroux.tigerreports.tasks;
 
+import fr.mrtigreroux.tigerreports.logs.Logger;
+
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Objects;
-
-import fr.mrtigreroux.tigerreports.logs.Logger;
 
 public class SeveralTasksHandler<R> {
 

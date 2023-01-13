@@ -1,13 +1,12 @@
 package fr.mrtigreroux.tigerreports.objects.users;
 
-import java.util.Objects;
-
-import org.bukkit.entity.Player;
-
 import fr.mrtigreroux.tigerreports.managers.VaultManager;
 import fr.mrtigreroux.tigerreports.objects.Comment;
 import fr.mrtigreroux.tigerreports.objects.menus.Menu;
 import fr.mrtigreroux.tigerreports.objects.reports.Report;
+import org.bukkit.entity.Player;
+
+import java.util.Objects;
 
 /**
  * @author MrTigreroux

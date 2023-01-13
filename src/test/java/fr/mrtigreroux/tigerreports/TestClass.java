@@ -1,16 +1,15 @@
 package fr.mrtigreroux.tigerreports;
 
-import org.junit.jupiter.api.AfterEach;
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.TestInfo;
-import org.junit.jupiter.api.TestInstance;
-import org.junit.jupiter.api.TestInstance.Lifecycle;
-
 import fr.mrtigreroux.tigerreports.logs.Level;
 import fr.mrtigreroux.tigerreports.logs.Logger;
 import fr.mrtigreroux.tigerreports.objects.reports.TestsReport;
 import fr.mrtigreroux.tigerreports.tasks.TestsTaskScheduler;
 import fr.mrtigreroux.tigerreports.utils.TestsReportUtils;
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.TestInfo;
+import org.junit.jupiter.api.TestInstance;
+import org.junit.jupiter.api.TestInstance.Lifecycle;
 
 /**
  * @author MrTigreroux

@@ -1,9 +1,8 @@
 package fr.mrtigreroux.tigerreports.data.constants;
 
-import org.bukkit.Material;
-
 import fr.mrtigreroux.tigerreports.objects.CustomItem;
 import fr.mrtigreroux.tigerreports.utils.VersionUtils;
+import org.bukkit.Material;
 
 public class MenuRawItem {
 

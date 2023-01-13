@@ -1,12 +1,12 @@
 package fr.mrtigreroux.tigerreports.utils;
 
-import static org.junit.jupiter.api.Assertions.assertTrue;
+import fr.mrtigreroux.tigerreports.logs.Logger;
 
 import java.util.List;
 import java.util.Random;
 import java.util.function.Consumer;
 
-import fr.mrtigreroux.tigerreports.logs.Logger;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 /**
  * @author MrTigreroux

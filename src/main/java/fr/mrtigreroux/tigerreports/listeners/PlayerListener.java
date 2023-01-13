@@ -1,8 +1,20 @@
 package fr.mrtigreroux.tigerreports.listeners;
 
-import java.util.Arrays;
-import java.util.List;
-
+import fr.mrtigreroux.tigerreports.TigerReports;
+import fr.mrtigreroux.tigerreports.commands.HelpCommand;
+import fr.mrtigreroux.tigerreports.data.config.ConfigFile;
+import fr.mrtigreroux.tigerreports.data.constants.Permission;
+import fr.mrtigreroux.tigerreports.data.database.Database;
+import fr.mrtigreroux.tigerreports.logs.Logger;
+import fr.mrtigreroux.tigerreports.managers.BungeeManager;
+import fr.mrtigreroux.tigerreports.managers.ReportsManager;
+import fr.mrtigreroux.tigerreports.managers.UsersManager;
+import fr.mrtigreroux.tigerreports.managers.VaultManager;
+import fr.mrtigreroux.tigerreports.objects.users.User;
+import fr.mrtigreroux.tigerreports.tasks.runnables.ReportsNotifier;
+import fr.mrtigreroux.tigerreports.utils.ConfigUtils;
+import fr.mrtigreroux.tigerreports.utils.MessageUtils;
+import net.md_5.bungee.api.chat.TextComponent;
 import org.bukkit.Bukkit;
 import org.bukkit.command.CommandSender;
 import org.bukkit.configuration.ConfigurationSection;
@@ -17,28 +29,8 @@ import org.bukkit.event.player.PlayerJoinEvent;
 import org.bukkit.event.player.PlayerQuitEvent;
 import org.bukkit.event.server.ServerCommandEvent;
 
-import fr.mrtigreroux.tigerreports.TigerReports;
-import fr.mrtigreroux.tigerreports.commands.HelpCommand;
-import fr.mrtigreroux.tigerreports.data.config.ConfigFile;
-import fr.mrtigreroux.tigerreports.data.config.ConfigSound;
-import fr.mrtigreroux.tigerreports.data.constants.Permission;
-import fr.mrtigreroux.tigerreports.data.database.Database;
-import fr.mrtigreroux.tigerreports.logs.Logger;
-import fr.mrtigreroux.tigerreports.managers.BungeeManager;
-import fr.mrtigreroux.tigerreports.managers.ReportsManager;
-import fr.mrtigreroux.tigerreports.managers.UpdatesManager;
-import fr.mrtigreroux.tigerreports.managers.UsersManager;
-import fr.mrtigreroux.tigerreports.managers.VaultManager;
-import fr.mrtigreroux.tigerreports.objects.users.User;
-import fr.mrtigreroux.tigerreports.tasks.runnables.ReportsNotifier;
-import fr.mrtigreroux.tigerreports.utils.ConfigUtils;
-import fr.mrtigreroux.tigerreports.utils.MessageUtils;
-import net.md_5.bungee.api.ChatColor;
-import net.md_5.bungee.api.chat.BaseComponent;
-import net.md_5.bungee.api.chat.ClickEvent;
-import net.md_5.bungee.api.chat.ComponentBuilder;
-import net.md_5.bungee.api.chat.HoverEvent;
-import net.md_5.bungee.api.chat.TextComponent;
+import java.util.Arrays;
+import java.util.List;
 
 /**
  * @author MrTigreroux

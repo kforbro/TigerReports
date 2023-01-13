@@ -1,17 +1,14 @@
 package fr.mrtigreroux.tigerreports;
 
-import static org.mockito.ArgumentMatchers.any;
-import static org.mockito.Mockito.doAnswer;
-import static org.mockito.Mockito.mock;
-import static org.mockito.Mockito.when;
-
+import fr.mrtigreroux.tigerreports.data.Holder;
 import org.bukkit.Bukkit;
 import org.bukkit.Server;
 import org.bukkit.event.Event;
 import org.bukkit.plugin.PluginManager;
 import org.mockito.MockedStatic;
 
-import fr.mrtigreroux.tigerreports.data.Holder;
+import static org.mockito.ArgumentMatchers.any;
+import static org.mockito.Mockito.*;
 
 /**
  * @author MrTigreroux

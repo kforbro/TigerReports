@@ -1,11 +1,10 @@
 package fr.mrtigreroux.tigerreports.events;
 
-import java.util.Objects;
-
+import fr.mrtigreroux.tigerreports.objects.reports.Report;
 import org.bukkit.event.Event;
 import org.bukkit.event.HandlerList;
 
-import fr.mrtigreroux.tigerreports.objects.reports.Report;
+import java.util.Objects;
 
 /**
  * @author MrTigreroux

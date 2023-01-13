@@ -1,9 +1,8 @@
 package fr.mrtigreroux.tigerreports.data.constants;
 
-import org.bukkit.Material;
-
 import fr.mrtigreroux.tigerreports.data.config.Message;
 import fr.mrtigreroux.tigerreports.objects.CustomItem;
+import org.bukkit.Material;
 
 /**
  * @author MrTigreroux

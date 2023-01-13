@@ -1,25 +1,5 @@
 package fr.mrtigreroux.tigerreports.objects.users;
 
-import java.net.InetAddress;
-import java.net.InetSocketAddress;
-import java.time.ZonedDateTime;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Collections;
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Map;
-import java.util.Objects;
-import java.util.Set;
-import java.util.UUID;
-import java.util.stream.Collectors;
-
-import org.bukkit.Bukkit;
-import org.bukkit.Location;
-import org.bukkit.configuration.file.FileConfiguration;
-import org.bukkit.entity.Player;
-
 import fr.mrtigreroux.tigerreports.TigerReports;
 import fr.mrtigreroux.tigerreports.data.config.ConfigFile;
 import fr.mrtigreroux.tigerreports.data.config.ConfigSound;
@@ -36,30 +16,23 @@ import fr.mrtigreroux.tigerreports.managers.ReportsManager;
 import fr.mrtigreroux.tigerreports.managers.UsersManager;
 import fr.mrtigreroux.tigerreports.managers.VaultManager;
 import fr.mrtigreroux.tigerreports.objects.Comment;
-import fr.mrtigreroux.tigerreports.objects.menus.ArchivedReportsMenu;
-import fr.mrtigreroux.tigerreports.objects.menus.CommentsMenu;
-import fr.mrtigreroux.tigerreports.objects.menus.ConfirmationMenu;
-import fr.mrtigreroux.tigerreports.objects.menus.Menu;
-import fr.mrtigreroux.tigerreports.objects.menus.ProcessMenu;
-import fr.mrtigreroux.tigerreports.objects.menus.PunishmentMenu;
-import fr.mrtigreroux.tigerreports.objects.menus.ReasonMenu;
-import fr.mrtigreroux.tigerreports.objects.menus.ReportMenu;
-import fr.mrtigreroux.tigerreports.objects.menus.ReportsMenu;
-import fr.mrtigreroux.tigerreports.objects.menus.UserAgainstArchivedReportsMenu;
-import fr.mrtigreroux.tigerreports.objects.menus.UserAgainstReportsMenu;
-import fr.mrtigreroux.tigerreports.objects.menus.UserArchivedReportsMenu;
-import fr.mrtigreroux.tigerreports.objects.menus.UserMenu;
-import fr.mrtigreroux.tigerreports.objects.menus.UserReportsMenu;
+import fr.mrtigreroux.tigerreports.objects.menus.*;
 import fr.mrtigreroux.tigerreports.objects.reports.Report;
 import fr.mrtigreroux.tigerreports.objects.users.OnlineUserData.PendingProcessPunishingData;
 import fr.mrtigreroux.tigerreports.tasks.ResultCallback;
 import fr.mrtigreroux.tigerreports.tasks.TaskScheduler;
-import fr.mrtigreroux.tigerreports.utils.ConfigUtils;
-import fr.mrtigreroux.tigerreports.utils.DatetimeUtils;
-import fr.mrtigreroux.tigerreports.utils.MessageUtils;
-import fr.mrtigreroux.tigerreports.utils.ReportUtils;
-import fr.mrtigreroux.tigerreports.utils.UserUtils;
+import fr.mrtigreroux.tigerreports.utils.*;
 import net.md_5.bungee.api.chat.TextComponent;
+import org.bukkit.Bukkit;
+import org.bukkit.Location;
+import org.bukkit.configuration.file.FileConfiguration;
+import org.bukkit.entity.Player;
+
+import java.net.InetAddress;
+import java.net.InetSocketAddress;
+import java.time.ZonedDateTime;
+import java.util.*;
+import java.util.stream.Collectors;
 
 /**
  * @author MrTigreroux

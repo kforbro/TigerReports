@@ -1,9 +1,9 @@
 package fr.mrtigreroux.tigerreports.data.database;
 
-import java.io.File;
-
 import fr.mrtigreroux.tigerreports.TigerReportsMock;
 import fr.mrtigreroux.tigerreports.tasks.TaskScheduler;
+
+import java.io.File;
 
 /**
  * @author MrTigreroux

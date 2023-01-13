@@ -1,9 +1,8 @@
 package fr.mrtigreroux.tigerreports.commands;
 
-import org.bukkit.command.CommandSender;
-
 import fr.mrtigreroux.tigerreports.data.config.Message;
 import fr.mrtigreroux.tigerreports.utils.ConfigUtils;
+import org.bukkit.command.CommandSender;
 
 /**
  * @author MrTigreroux

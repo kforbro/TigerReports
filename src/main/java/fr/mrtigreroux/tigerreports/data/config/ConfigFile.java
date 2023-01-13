@@ -1,16 +1,15 @@
 package fr.mrtigreroux.tigerreports.data.config;
 
-import java.io.File;
-import java.io.InputStreamReader;
-import java.io.Reader;
-
-import org.bukkit.configuration.file.FileConfiguration;
-import org.bukkit.configuration.file.YamlConfiguration;
-
 import fr.mrtigreroux.tigerreports.TigerReports;
 import fr.mrtigreroux.tigerreports.logs.Logger;
 import fr.mrtigreroux.tigerreports.utils.ConfigUtils;
 import fr.mrtigreroux.tigerreports.utils.MessageUtils;
+import org.bukkit.configuration.file.FileConfiguration;
+import org.bukkit.configuration.file.YamlConfiguration;
+
+import java.io.File;
+import java.io.InputStreamReader;
+import java.io.Reader;
 
 /**
  * @author MrTigreroux

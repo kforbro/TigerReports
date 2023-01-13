@@ -1,12 +1,12 @@
 package fr.mrtigreroux.tigerreports.data.database;
 
+import fr.mrtigreroux.tigerreports.logs.Logger;
+import fr.mrtigreroux.tigerreports.tasks.TaskScheduler;
+
 import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.atomic.AtomicInteger;
-
-import fr.mrtigreroux.tigerreports.logs.Logger;
-import fr.mrtigreroux.tigerreports.tasks.TaskScheduler;
 
 /**
  * @author MrTigreroux

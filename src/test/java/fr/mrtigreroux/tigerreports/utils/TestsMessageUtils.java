@@ -1,11 +1,10 @@
 package fr.mrtigreroux.tigerreports.utils;
 
-import static org.mockito.ArgumentMatchers.any;
-
+import fr.mrtigreroux.tigerreports.data.Holder;
 import org.bukkit.Sound;
 import org.mockito.MockedStatic;
 
-import fr.mrtigreroux.tigerreports.data.Holder;
+import static org.mockito.ArgumentMatchers.any;
 
 /**
  * @author MrTigreroux

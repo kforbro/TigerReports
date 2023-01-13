@@ -1,13 +1,13 @@
 package fr.mrtigreroux.tigerreports.data.database;
 
+import fr.mrtigreroux.tigerreports.tasks.TaskScheduler;
+import fr.mrtigreroux.tigerreports.utils.ConfigUtils;
+
 import java.io.File;
 import java.io.IOException;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 import java.util.Arrays;
-
-import fr.mrtigreroux.tigerreports.tasks.TaskScheduler;
-import fr.mrtigreroux.tigerreports.utils.ConfigUtils;
 
 /**
  * @author MrTigreroux

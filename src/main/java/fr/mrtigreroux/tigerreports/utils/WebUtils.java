@@ -1,19 +1,14 @@
 package fr.mrtigreroux.tigerreports.utils;
 
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.InputStreamReader;
-import java.io.OutputStream;
-import java.net.HttpURLConnection;
-import java.net.URL;
-import java.util.logging.Logger;
-
+import fr.mrtigreroux.tigerreports.tasks.ResultCallback;
+import fr.mrtigreroux.tigerreports.tasks.TaskScheduler;
 import org.bukkit.Bukkit;
 import org.bukkit.plugin.Plugin;
 
-import fr.mrtigreroux.tigerreports.tasks.ResultCallback;
-import fr.mrtigreroux.tigerreports.tasks.TaskScheduler;
+import java.io.*;
+import java.net.HttpURLConnection;
+import java.net.URL;
+import java.util.logging.Logger;
 
 /**
  * @author MrTigreroux
