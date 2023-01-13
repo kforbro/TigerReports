@@ -91,7 +91,7 @@ public class MessageUtils {
 		String temp = Normalizer.normalize(message, Normalizer.Form.NFD);
 
 		message = CONSOLE_PATTERN.matcher(temp).replaceAll("");
-		Bukkit.getConsoleSender().sendMessage(message.replace("»", ">"));
+		Bukkit.getConsoleSender().sendMessage(message.replace("Â»", ">"));
 	}
 
 	public static ChatColor getLastColor(String text, String lastWord) {
